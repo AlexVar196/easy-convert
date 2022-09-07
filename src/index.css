@@ -1,13 +1,248 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  background-color: #efefef;
+}
+
+#root {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  width: 100%;
+  max-width: 900px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #333;
+  box-shadow: 0px 0px 15px gray;
+}
+
+.Header,
+.Footer {
+  width: 100%;
+  background-color: #66d8f5;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  display: grid;
+  place-content: center;
+}
+
+.Header h1 {
+  font-size: 1.5rem;
+}
+
+.Nav {
+  width: 100%;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Nav ul {
+  color: #fff;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.Nav li {
+  padding: 1rem;
+}
+
+.Nav li:hover,
+.Nav li:focus {
+  padding: 1rem;
+}
+
+.Nav li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.Nav li:hover,
+.Nav li:focus,
+.Nav li:hover a,
+.Nav li:focus a {
+  background-color: #eee;
+  color: #333;
+}
+
+.Nav li:hover a,
+.Nav li:focus a {
+  cursor: pointer;
+}
+
+.UnitList,
+.Currency {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-row-gap: 1.3rem;
+  grid-column-gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+  height: 100vh;
+  align-content: start;
+}
+
+.convertionsMenu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  align-content: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.convertionsMenu button {
+  width: 140px;
+  font-size: 0.8rem;
+  height: 45px;
+}
+
+.UnitPick {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 1rem;
+  height: 100vh;
+  align-content: start;
+}
+
+.UnitPick form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.dataTableContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.UnitPick input {
+  width: 40%;
+  height: 35px;
+  font-size: 1rem;
+  padding: 0.2rem;
+  margin-top: 0.6rem;
+}
+
+.conversionResultsTable {
+  border: 1px solid blue;
+  width: 40%;
+  margin-top: 0.6rem;
+  text-align: center;
+}
+
+.pickedConversionTab {
+  background-color: orange;
+}
+
+.conversionResultsTable .data {
+  padding: 0.3rem;
+  width: 150px;
+  margin: auto;
+  font-size: 0.8em;
+}
+
+
+
+.unit {
+  display: grid;
+  place-content: center;
+  width: 100px;
+  height: 50px;
+  border: 1px solid lightgray;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+
+.UnitList a .unit:hover {
+  border: 2px solid rgb(100, 110, 187);
+}
+
+.UnitList:first-child {
+  margin-top: 0;
+}
+
+.Missing h2,
+.UnitPick h2,
+.Missing p,
+.UnitPick p {
+  margin-bottom: 1rem;
+}
+
+@media only screen and (min-width: 610px) {
+  html {
+    font-size: 22px;
+  }
+
+  .unit {
+    width: 150px;
+    height: 75px;
+    background-color: rgb(179, 198, 242);
+    box-shadow: 2px 2px 5px rgb(74, 95, 228);
+  }
+
+  .Header h1 {
+    font-size: 2rem;
+  }
+
+  .Nav {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Nav ul {
+    text-align: right;
+  }
+
+  .Nav li:hover,
+  .Nav li:focus,
+  .Nav li:hover a,
+  .Nav li:focus a {
+    background-color: #eee;
+    color: #333;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+
+  .Header svg {
+    font-size: 3rem;
+  }
+
 }
