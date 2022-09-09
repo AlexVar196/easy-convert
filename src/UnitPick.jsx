@@ -1,15 +1,21 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
 
-const UnitPick = ({ unitList, value, handleValueChange, handleConversionChange, calculateConversion, pickedConversion }) => {
-    const { unitName } = useParams();
-    const unit = unitList.find(unit => (unit.unitName).toString() === unitName);
+const UnitPick = ({
+    unitGroupList,
+    value,
+    handleValueChange,
+    handleConversionChange,
+    calculateConversion,
+    pickedConversion }) => {
+        
+    const { unitGroup } = useParams();
+    const unit = unitGroupList.find(unit => (unit.unitGroup).toString() === unitGroup);
     const bgColor = { backgroundColor: 'orange' }
 
     return (
-
         <div className="UnitPick">
-            <h2>{unit.unitName}</h2>
+            <h2>{unit.unitGroup}</h2>
             <div className='convertionsMenu'>
                 {unit.conversions.map(conversion => (
                     <button
