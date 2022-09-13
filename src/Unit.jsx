@@ -12,7 +12,6 @@ const Unit = ({ unit, setUnitGroup, setPickedValue }) => {
                 {unit.unitGroup.toUpperCase()}
             </button>
         </Link>
-
     )
 }
 

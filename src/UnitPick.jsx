@@ -11,12 +11,10 @@ const UnitPick = ({
 
     const { unitGroup } = useParams();
     const unit = unitGroupList.find(unit => (unit.unitGroup).toString() === unitGroup);
-    // const bgColor = { backgroundColor: "pink" }
 
     if (unit === undefined || unit.unitGroup === null) {
         return <Navigate to="/" replace={true} />
     }
-
 
     return (
         <div className="UnitPick">
@@ -55,7 +53,7 @@ const UnitPick = ({
                                     </div>
                                 </td>
                                 <td>
-                                    <div className='data'>
+                                    <div className='data-right'>
                                         {calculateConversion(conversion)}
                                     </div>
                                 </td>

@@ -1,4 +1,3 @@
-import Footer from './Footer.jsx';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Header from './Header.jsx';
 import Nav from './Nav';
@@ -9,8 +8,7 @@ import UnitPick from './UnitPick.jsx';
 import LengthConversions from './LengthConversions.jsx';
 import TempConversions from './TempConversions.jsx';
 import WeightConversions from './WeightConversions.jsx';
-// import SYMBOLS from './SYMBOLS.json'
-import SYMBOLS2 from './SYMBOLS2.json'
+import SYMBOLS from './SYMBOLS.json'
 import UNITS from './UNITS';
 
 function App() {
@@ -19,24 +17,11 @@ function App() {
   const [unitGroupList, setUnitGroupList] = useState(UNITS);
   const [pickedConversion, setPickedConversion] = useState('Meter');
   const [pickedValue, setPickedValue] = useState('');
-  // const [currencies, setCurrencies] = useState(SYMBOLS.symbols);
-  const [currencies, setCurrencies] = useState(SYMBOLS2);
-  const [currencyFrom, setCurrencyFrom] = useState('');
-  const [currencyTo, setCurrencyTo] = useState('');
-  const [currencyValue, setCurrencyValue] = useState('');
-
-  // useEffect(() => {
-  //   // fetch(SYMBOLS).then(() => setCurrencies(JSON.parse(SYMBOLS.symbols)))
-  //   fetch(SYMBOLS2).then(() => setCurrencies(SYMBOLS2))
-  // }, []);
-
-  console.log(currencies.AED.description);
-
-  // Object.keys(currencies).map((symbol, index) => {
-  //   arrays.push(symbol);
-  //   // console.log(symbol);
-  // })
-
+  const [currencies, setCurrencies] = useState(SYMBOLS.symbols);
+  const [currencyFrom, setCurrencyFrom] = useState('AED');
+  const [currencyTo, setCurrencyTo] = useState('AED');
+  const [currencyValue, setCurrencyValue] = useState(1);
+  const [currencyConvertedResult, setCurrencyConvertedResult] = useState('1');
 
   useEffect(() => {
     const state = JSON.parse(localStorage.getItem("userState"));
@@ -47,6 +32,23 @@ function App() {
     localStorage.setItem("userState", JSON.stringify(unitGroup));
   }, [unitGroup])
 
+  useEffect(() => {
+    handleCurrencyInfoChange();
+  }, [currencyFrom, currencyTo, currencyValue])
+
+  const handleCurrencyInfoChange = () => {
+    var requestURL = (`https://api.exchangerate.host/convert?from=${currencyFrom}&to=${currencyTo}&amount=${currencyValue}`);
+    var request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+    request.responseType = 'json';
+    request.send();
+
+    request.onload = function () {
+      var response = request.response;
+      console.log(response.result);
+      setCurrencyConvertedResult(response.result);
+    }
+  }
 
   const handleValueChange = (value) => {
     setPickedValue(value);
@@ -72,7 +74,6 @@ function App() {
     } catch (error) {
       console.log(error);
       <Navigate to="/" replace={true} />
-
     }
 
     return result;
@@ -92,12 +93,14 @@ function App() {
         <Route path='/Currency' element={<Currency
           currencies={currencies}
           currencyFrom={currencyFrom}
-          setcurrencyFrom={setCurrencyFrom}
+          setCurrencyFrom={setCurrencyFrom}
           currencyTo={currencyTo}
           setCurrencyTo={setCurrencyTo}
           currencyValue={currencyValue}
           setCurrencyValue={setCurrencyValue}
+          currencyConvertedResult={currencyConvertedResult}
         />}></Route>
+
         <Route path="/Unit/:unitGroup"
           element={<UnitPick
             unitGroupList={unitGroupList}
@@ -107,9 +110,9 @@ function App() {
             calculateConversion={calculateConversion}
             pickedConversion={pickedConversion}
           />} />
+          
         <Route path="*" element={<Navigate to="/" replace={true} />} />
       </Routes>
-      <Footer footerText={'footer goes here'} />
     </div>
   );
 }

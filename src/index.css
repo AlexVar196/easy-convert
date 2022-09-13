@@ -7,8 +7,8 @@
   --font-button-size: font-size: 2.5em;
   --button-text: var(--box-shadow-button);
   --hover-bg-pink: #de65e9;
+  --font-color-light: #d5d5d5;
 }
-
 
 * {
   margin: 0;
@@ -32,8 +32,6 @@ body {
   display: flex;
   background-color: var(--main-bg-dark);
 }
-
-
 
 #root {
   flex-grow: 1;
@@ -66,7 +64,6 @@ body {
   place-content: center;
   font-size: 0.8rem;
   color: var(--box-shadow-button);
-  /* height: 700px; */
 }
 
 .Header img {
@@ -151,7 +148,10 @@ body {
   height: 45px;
   border: none;
   margin: 4px;
-
+  background-color: var(--main-bg-dark);
+  border: 1px solid grey;
+  border-radius: 5px;
+  color: var(--font-color-light);
 }
 
 .UnitPick {
@@ -179,6 +179,7 @@ body {
 
 .UnitPick input {
   width: 40%;
+  min-width: 200px;
   height: 35px;
   font-size: 1rem;
   padding: 0.2rem;
@@ -189,6 +190,7 @@ body {
   width: 40%;
   margin-top: 0.6rem;
   text-align: left;
+  border: 1px solid grey;
 }
 
 .pickedConversionTab {
@@ -197,13 +199,22 @@ body {
 
 .conversionResultsTable .data {
   padding: 0.3rem;
-  width: 150px;
+  width: 130px;
+  margin: auto;
+  font-size: 0.8em;
+}
+
+.conversionResultsTable .data-right {
+  padding: 0.3rem;
+  width: 170px;
   margin: auto;
   font-size: 0.8em;
 }
 
 .bgColor {
-  background-color: var(--hover-bg-pink);
+  background-color: var(--hover-bg-pink) !important;
+  color: var(--main-bg-dark) !important;
+  font-weight: 600;
 }
 
 .unit {
@@ -215,7 +226,6 @@ body {
   background-color: var(--widget-bg-color);
   box-shadow: 0 0 5px var(--box-shadow-button);
   border: 1px solid var(--box-shadow-button);
-
 }
 
 a {
@@ -226,17 +236,14 @@ a {
 .UnitList a button {
   font-size: var(--font-button-size);
   font-family: var(--font-main);
-  color: var(--box-shadow-button);
+  color: var(--font-color-light);
   font-size: 18px;
   margin-top: 0.8rem;
 }
 
-
 .UnitList a .unit:hover {
-  /* border: 2px solid rgb(100, 110, 187); */
   color: #181818;
   background-color: var(--box-shadow-button);
-
 }
 
 .currencyContainer {
@@ -245,17 +252,66 @@ a {
   display: flex;
   justify-content: center;
   margin-top: 15px;
+  flex-direction: column;
 }
 
 .currencyContainer select {
-  padding: 5px;
+  padding: 12px;
   margin: 15px;
+  background-color: var(--main-bg-dark);
+  color: var(--font-color-light);
+  font-size: 0.7em;
+  border-radius: 5px;
+  width: 300px;
+}
+
+.input-field {
+  padding: 12px;
+  margin: 15px;
+  background-color: var(--main-bg-dark);
+  color: var(--font-color-light);
+  font-size: 0.7em;
+  border-radius: 5px;
+  border: 1px solid grey;
+  width: 300px;
+}
+
+.output-text {
+  font-size: 1em;
+  color: var(--font-color-light);
+}
+
+.output-text-p {
+  font-size: 1em;
+  margin-bottom: 7px !important;
+}
+
+.data-left {
+  width: 100px;
+}
+
+.output-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  margin: auto;
+  border: 1px solid grey;
+  margin-top: 15px;
+  padding: 15px;
+}
+
+.output-text-container span {
+  margin: auto;
+  text-align: center;
 }
 
 .currencyContainer label {
-
+  display: block;
+  width: 85px;
+  text-align: right;
+  margin-top: 8px;
   margin-left: 15px;
- 
   margin: auto;
 }
 
@@ -269,6 +325,8 @@ a {
 
 .labelContainer {
   display: flex;
+  margin: auto;
+  padding-right: 85px;
 }
 
 @media only screen and (min-width: 610px) {
@@ -293,26 +351,20 @@ a {
 }
 
 @media only screen and (max-width: 670px) {
-  .currencyContainer {
+  .labelContainer {
     flex-direction: column;
-  }
+    padding-right: 0;
 
-  .labelContainer{
-    margin: auto;
   }
 
   .currencyContainer label {
     display: block;
-    width: 60px;
-    margin-top: 8px;
+    text-align: center;
   }
-
 }
 
 @media only screen and (min-width: 992px) {
-
   .Header svg {
     font-size: 3rem;
   }
-
 }

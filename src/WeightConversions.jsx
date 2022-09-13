@@ -4,7 +4,6 @@ const WeightConversions = (from, to, value) => {
 
 const convertWeightToGrams = (from, value) => {
     var toGram = 0;
-    //'Gram', 'Kilogram', 'Miligram', 'Ounce', 'Pound', 'Ton'
     var conversions = {
         'Gram': function () {
             toGram = Number(value).toFixed(3);
