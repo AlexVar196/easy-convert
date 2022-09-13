@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 
 const UnitPick = ({
     unitGroupList,
@@ -8,10 +8,15 @@ const UnitPick = ({
     handleConversionChange,
     calculateConversion,
     pickedConversion }) => {
-        
+
     const { unitGroup } = useParams();
     const unit = unitGroupList.find(unit => (unit.unitGroup).toString() === unitGroup);
-    const bgColor = { backgroundColor: 'orange' }
+    // const bgColor = { backgroundColor: "pink" }
+
+    if (unit === undefined || unit.unitGroup === null) {
+        return <Navigate to="/" replace={true} />
+    }
+
 
     return (
         <div className="UnitPick">
@@ -19,9 +24,9 @@ const UnitPick = ({
             <div className='convertionsMenu'>
                 {unit.conversions.map(conversion => (
                     <button
-                        style={
+                        className={
                             conversion === pickedConversion
-                                ? bgColor
+                                ? 'bgColor'
                                 : null
                         }
                         key={conversion}

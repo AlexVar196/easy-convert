@@ -1,7 +1,6 @@
 
 const UNITS = () => {
     return (
-
         [
             {
                 unitGroup: "Length",
@@ -9,11 +8,11 @@ const UNITS = () => {
             },
             {
                 unitGroup: "Temperature",
-                conversions: ['Meter2', 'Kilometer2', 'Centimeter2']
+                conversions: ['Celsius', 'Kelvin', 'Fahrenheit']
             },
             {
                 unitGroup: "Weight",
-                conversions: ['Kilogram', 'Gram', 'Miligram']
+                conversions: ['Gram', 'Kilogram', 'Miligram', 'Ounce', 'Pound', 'Ton']
             }
         ]
     )
