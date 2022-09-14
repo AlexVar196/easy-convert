@@ -13,6 +13,10 @@ const UNITS = () => {
             {
                 unitGroup: "Weight",
                 conversions: ['Gram', 'Kilogram', 'Miligram', 'Ounce', 'Pound', 'Ton']
+            },
+            {
+                unitGroup: "Time",
+                conversions: ['Second', 'Minute', 'Hour', 'Day', 'Week', 'Month', 'Year']
             }
         ]
     )

@@ -8,6 +8,7 @@ import UnitPick from './UnitPick.jsx';
 import LengthConversions from './LengthConversions.jsx';
 import TempConversions from './TempConversions.jsx';
 import WeightConversions from './WeightConversions.jsx';
+import TimeConversions from './TimeConversions.jsx';
 import SYMBOLS from './SYMBOLS.json'
 import UNITS from './UNITS';
 
@@ -66,6 +67,7 @@ function App() {
       'Length': (conversion) => LengthConversions(pickedConversion, conversion, pickedValue),
       'Temperature': (conversion) => TempConversions(pickedConversion, conversion, pickedValue),
       'Weight': (conversion) => WeightConversions(pickedConversion, conversion, pickedValue),
+      'Time': (conversion) => TimeConversions(pickedConversion, conversion, pickedValue),
       'default': () => { }
     };
 
