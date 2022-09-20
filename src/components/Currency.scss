@@ -1,0 +1,130 @@
+.Currency {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-row-gap: 1.3rem;
+    grid-column-gap: 1rem;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 0.8rem;
+    height: 100vh;
+    align-content: start;
+    background-color: var(--widget-bg-color);
+}
+
+.convertionsMenu {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    button {
+        width: 140px;
+        font-size: 0.8rem;
+        height: 45px;
+        border: none;
+        margin: 4px;
+        background-color: var(--main-bg-dark);
+        border: 1px solid grey;
+        border-radius: 5px;
+        color: var(--font-color-light);
+    }
+}
+
+.dataTableContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: var(--hover-bg-pink);
+}
+
+.currencyContainer {
+    color: var(--box-shadow-button);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    flex-direction: column;
+
+    select {
+        padding: 12px;
+        margin: 15px;
+        background-color: var(--main-bg-dark);
+        color: var(--font-color-light);
+        font-size: 0.7em;
+        border-radius: 5px;
+        width: 300px;
+    }
+
+    label {
+        display: block;
+        width: 85px;
+        text-align: right;
+        margin-top: 8px;
+        margin-left: 15px;
+        margin: auto;
+    }
+}
+
+.input-field {
+    padding: 12px;
+    margin: 15px;
+    background-color: var(--main-bg-dark);
+    color: var(--font-color-light);
+    font-size: 0.7em;
+    border-radius: 5px;
+    border: 1px solid grey;
+    width: 300px;
+}
+
+.output-text {
+    font-size: 1em;
+    color: var(--font-color-light);
+}
+
+.output-text-p {
+    font-size: 1em;
+    margin-bottom: 7px !important;
+}
+
+.data-left {
+    width: 100px;
+}
+
+.output-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    margin: auto;
+    border: 1px solid grey;
+    margin-top: 15px;
+    padding: 15px;
+
+    span {
+        margin: auto;
+        text-align: center;
+    }
+}
+
+.labelContainer {
+    display: flex;
+    margin: auto;
+    padding-right: 85px;
+}
+
+
+@media only screen and (max-width: 670px) {
+    .labelContainer {
+        flex-direction: column;
+        padding-right: 0;
+    }
+
+    .currencyContainer {
+        label {
+            display: block;
+            text-align: center;
+        }
+    }
+}
