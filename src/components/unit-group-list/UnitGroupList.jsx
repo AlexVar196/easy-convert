@@ -1,10 +1,10 @@
-import React from 'react';
-import Unit from './Unit';
-import './UnitGroupList.scss';
+import React from "react";
+import Unit from "../../data/UNITS";
+import "./UnitGroupList.scss";
 
 const UnitGroupList = ({ unitGroupList, setUnitGroup, setPickedValue }) => {
   return (
-    <div className='UnitList'>
+    <div className="UnitList">
       {unitGroupList.map(unit => (
         <Unit
           key={unit.unitGroup}
@@ -14,7 +14,7 @@ const UnitGroupList = ({ unitGroupList, setUnitGroup, setPickedValue }) => {
         />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default UnitGroupList
+export default UnitGroupList;
