@@ -42,7 +42,6 @@ function App({ logo }) {
 
     request.onload = function () {
       var response = request.response;
-      console.log(response.result);
       setCurrencyConvertedResult(response.result);
     };
   }, [currencyFrom, currencyTo, currencyValue]);
@@ -51,26 +50,26 @@ function App({ logo }) {
     setPickedValue(value);
   };
 
-  const handleConversionChange = conversion => {
+  const handleConversionChange = (conversion) => {
     setPickedConversion(conversion);
   };
 
-  const calculateConversion = conversion => {
+  const calculateConversion = (conversion) => {
     var result = "";
     const switchF = unitGroup =>
       unitGroupSelector[unitGroup](conversion) ||
       unitGroupSelector["default"](conversion);
 
     var unitGroupSelector = {
-      Length: conversion =>
+      'Length': (conversion) =>
         LengthConversions(pickedConversion, conversion, pickedValue),
-      Temperature: conversion =>
+      "Temperature": (conversion) =>
         TempConversions(pickedConversion, conversion, pickedValue),
-      Weight: conversion =>
+      "Weight": (conversion) =>
         WeightConversions(pickedConversion, conversion, pickedValue),
-      Time: conversion =>
+      "Time": (conversion) =>
         TimeConversions(pickedConversion, conversion, pickedValue),
-      default: () => {}
+      "default": () => { }
     };
 
     try {
