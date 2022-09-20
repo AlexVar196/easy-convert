@@ -1,5 +1,6 @@
-import React from 'react'
+import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
+import './UnitPick.scss';
 
 const UnitPick = ({
     unitGroupList,
@@ -13,7 +14,7 @@ const UnitPick = ({
     const unit = unitGroupList.find(unit => (unit.unitGroup).toString() === unitGroup);
 
     if (unit === undefined || unit.unitGroup === null) {
-        return <Navigate to="/" replace={true} />
+        return <Navigate to={process.env.PUBLIC_URL + "/units"} replace={true} />
     }
 
     return (

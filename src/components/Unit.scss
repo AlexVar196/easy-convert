@@ -1,0 +1,10 @@
+.unit {
+	display: grid;
+	place-content: center;
+	width: 100%;
+	height: 50px;
+	border-radius: 10px;
+	background-color: var(--widget-bg-color);
+	box-shadow: 0 0 5px var(--box-shadow-button);
+	border: 1px solid var(--box-shadow-button);
+}

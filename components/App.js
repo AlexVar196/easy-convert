@@ -5,14 +5,15 @@ import UnitGroupList from './UnitGroupList.jsx';
 import Currency from './Currency.jsx';
 import { useState, useEffect } from 'react';
 import UnitPick from './UnitPick.jsx';
-import LengthConversions from './LengthConversions.jsx';
-import TempConversions from './TempConversions.jsx';
-import WeightConversions from './WeightConversions.jsx';
-import TimeConversions from './TimeConversions.jsx';
-import SYMBOLS from './SYMBOLS.json'
-import UNITS from './UNITS';
+import LengthConversions from './conversion_modules/LengthConversions.jsx.js';
+import TempConversions from './conversion_modules/TempConversions.jsx.js';
+import WeightConversions from './conversion_modules/WeightConversions.jsx.js';
+import TimeConversions from './conversion_modules/TimeConversions.jsx.js';
+import SYMBOLS from './data/SYMBOLS.json'
+import UNITS from './data/UNITS';
+import './App.scss';
 
-function App() {
+function App({ logo }) {
 
   const [unitGroup, setUnitGroup] = useState('Length');
   const [unitGroupList, setUnitGroupList] = useState(UNITS);
@@ -34,10 +35,6 @@ function App() {
   }, [unitGroup])
 
   useEffect(() => {
-    handleCurrencyInfoChange();
-  }, [currencyFrom, currencyTo, currencyValue])
-
-  const handleCurrencyInfoChange = () => {
     var requestURL = (`https://api.exchangerate.host/convert?from=${currencyFrom}&to=${currencyTo}&amount=${currencyValue}`);
     var request = new XMLHttpRequest();
     request.open('GET', requestURL);
@@ -49,7 +46,7 @@ function App() {
       console.log(response.result);
       setCurrencyConvertedResult(response.result);
     }
-  }
+  }, [currencyFrom, currencyTo, currencyValue])
 
   const handleValueChange = (value) => {
     setPickedValue(value);
@@ -75,7 +72,7 @@ function App() {
       result = switchF(unitGroup);
     } catch (error) {
       console.log(error);
-      <Navigate to="/" replace={true} />
+      <Navigate to={process.env.PUBLIC_URL + "/units"} replace={true} />
     }
 
     return result;
@@ -83,16 +80,19 @@ function App() {
 
   return (
     <div className="App">
-      <Header title="Easy-Convert" />
+      <Header title="Easy-Convert" logo={logo} />
       <Nav />
       <Routes>
-        <Route index element={<UnitGroupList
-          unitGroupList={unitGroupList}
-          setUnitGroup={setUnitGroup}
-          setPickedValue={setPickedValue}
-        />}></Route>
+        <Route index path={process.env.PUBLIC_URL + '/units'}
+          element={<UnitGroupList
+            unitGroupList={unitGroupList}
+            setUnitGroup={setUnitGroup}
+            setPickedValue={setPickedValue}
+          />
+          }>
+        </Route>
 
-        <Route path='/Currency' element={<Currency
+        <Route path={process.env.PUBLIC_URL + '/Currency'} element={<Currency
           currencies={currencies}
           currencyFrom={currencyFrom}
           setCurrencyFrom={setCurrencyFrom}
@@ -103,7 +103,7 @@ function App() {
           currencyConvertedResult={currencyConvertedResult}
         />}></Route>
 
-        <Route path="/Unit/:unitGroup"
+        <Route path={process.env.PUBLIC_URL + "/units/:unitGroup"}
           element={<UnitPick
             unitGroupList={unitGroupList}
             value={pickedValue}
@@ -112,8 +112,8 @@ function App() {
             calculateConversion={calculateConversion}
             pickedConversion={pickedConversion}
           />} />
-          
-        <Route path="*" element={<Navigate to="/" replace={true} />} />
+
+        <Route path="*" element={<Navigate to={process.env.PUBLIC_URL + "/units"} replace={true} />} />
       </Routes>
     </div>
   );

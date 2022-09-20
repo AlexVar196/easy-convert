@@ -1,0 +1,51 @@
+.UnitPick {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 100%;
+	padding: 1rem;
+	height: 100vh;
+	align-content: flex-start;
+	form {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+	input {
+		width: 40%;
+		min-width: 200px;
+		height: 35px;
+		font-size: 1rem;
+		padding: 0.2rem;
+		margin-top: 1rem;
+	}
+	h2 {
+		margin: 0.8rem auto;
+	}
+}
+
+.conversionResultsTable {
+	width: 40%;
+	margin-top: 0.6rem;
+	text-align: left;
+	border: 1px solid grey;
+	padding: 5px;
+	.data {
+		padding: 0.3rem;
+		width: 130px;
+		margin: auto;
+		font-size: 0.8em;
+	}
+	.data-right {
+		padding: 0.3rem;
+		width: 170px;
+		margin: auto;
+		font-size: 0.8em;
+	}
+}
+
+.bgColor {
+	background-color: var(--hover-bg-pink) !important;
+	color: var(--main-bg-dark) !important;
+	font-weight: 600;
+}

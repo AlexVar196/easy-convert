@@ -15,13 +15,13 @@ const convertWeightToGrams = (from, value) => {
             toGram = Number(value * 1000000).toFixed(3);
         },
         'Miligram': function () {
-            toGram = Number(value / 100).toFixed(3);
+            toGram = Number(value * 0.001).toFixed(3);
         },
         'Ounce': function () {
-            toGram = Number(value * 0.035274).toFixed(3);
+            toGram = Number(value * 28.3495).toFixed(3);
         },
         'Pound': function () {
-            toGram = Number(value * 0.0022046).toFixed(3);
+            toGram = Number(value * 453.592).toFixed(3);
         },
         'Default': function () {
             toGram = 0;
@@ -45,13 +45,13 @@ const convertGramsToOther = (to, value) => {
             fromGram = Number(value / 1000000).toFixed(3);
         },
         'Miligram': function () {
-            fromGram = Number(value * 100).toFixed(3);
+            fromGram = Number(value / 0.001).toFixed(3);
         },
         'Ounce': function () {
-            fromGram = Number(value / 0.035274).toFixed(3);
+            fromGram = Number(value / 28.3495).toFixed(3);
         },
         'Pound': function () {
-            fromGram = Number(value / 0.0022046).toFixed(3);
+            fromGram = Number(value / 453.592).toFixed(3);
         },
         'Default': function () {
             fromGram = 0;

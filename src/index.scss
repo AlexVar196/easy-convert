@@ -1,0 +1,52 @@
+:root {
+  --main-bg-dark: #181818;
+  --widget-bg-color: #181818;
+  --box-shadow-main: #4472b8;
+  --box-shadow-button: #e050ff;
+  --font-main: 'Open Sans', sans-serif;
+  --font-button-size: 2.5em;
+  --button-text: var(--box-shadow-button);
+  --hover-bg-pink: #de65e9;
+  --font-color-light: #d5d5d5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 23px;
+}
+
+h2 {
+  color: var(--box-shadow-button);
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  background-color: var(--main-bg-dark);
+}
+
+#root {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+@media only screen and (min-width: 610px) {
+  html {
+    font-size: 22px;
+  }
+}
