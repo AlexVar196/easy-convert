@@ -1,16 +1,16 @@
-import { Route, Routes, Navigate } from "react-router-dom";
-import Header from "./components/Header";
-import Nav from "./Nav";
-import UnitGroupList from "./UnitGroupList.jsx";
-import Currency from "./Currency.jsx";
 import { useState, useEffect } from "react";
-import UnitPick from "./UnitPick.jsx";
-import LengthConversions from "../conversion_modules/LengthConversions.jsx";
-import TempConversions from "../conversion_modules/TempConversions.jsx";
-import WeightConversions from "../conversion_modules/WeightConversions.jsx";
-import TimeConversions from "../conversion_modules/TimeConversions.jsx";
-import SYMBOLS from "../data/SYMBOLS.json";
-import UNITS from "../data/UNITS";
+import { Route, Routes, Navigate } from "react-router-dom";
+import Header from "./components/header/Header.jsx";
+import Nav from "./components/nav/Nav.jsx";
+import UnitGroupList from "./components/unit-group-list/UnitGroupList.jsx";
+import Currency from "./components/currency/Currency.jsx";
+import UnitPick from "./components/unit-pick/UnitPick.jsx";
+import LengthConversions from "./conversion_modules/LengthConversions.jsx";
+import TempConversions from "./conversion_modules/TempConversions.jsx";
+import WeightConversions from "./conversion_modules/WeightConversions.jsx";
+import TimeConversions from "./conversion_modules/TimeConversions.jsx";
+import SYMBOLS from "./data/SYMBOLS";
+import UNITS from "./data/UNITS";
 import "./App.scss";
 
 function App({ logo }) {
